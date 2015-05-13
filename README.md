@@ -8,4 +8,4 @@ Search Plugin for CakePHP
 
 | dependencies  | status |
 | ------------- | ------ |
-| composer.json | [![Dependency Status](https://www.versioneye.com/user/projects/544a13d2c310f93677000088/badge.png)](https://www.versioneye.com/user/projects/544a13d2c310f93677000088) |
+| composer.json | [![Dependency Status](https://www.versioneye.com/user/projects/55531fc206c318a32a000220/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55531fc206c318a32a000220) |
