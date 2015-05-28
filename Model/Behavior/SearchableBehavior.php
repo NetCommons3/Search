@@ -20,7 +20,6 @@ class SearchableBehavior extends ModelBehavior {
 
 /**
  * Default settings
- *
  */
 	protected $_defaults = [
 		'searchModel' => 'Topics.Topic',
@@ -30,11 +29,17 @@ class SearchableBehavior extends ModelBehavior {
 		],
 	];
 
+/**
+ * Default settings
+ */
 	private $__contents = [
 		'title' => null,
 		'contents' => [],
 	];
 
+/**
+ * Default settings
+ */
 	private $__searchModel;
 
 /**

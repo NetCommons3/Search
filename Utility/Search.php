@@ -18,8 +18,6 @@
 
 /**
  * Convenience class for reading, writing and appending to files.
- *
- * @package       Cake.Utility
  */
 class Search {
 
