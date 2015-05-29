@@ -62,7 +62,7 @@ class Search {
  * @param string $data data
  * @return string Title
  */
-	public function prepareTitle($data) {
+	public static function prepareTitle($data) {
 		return mb_strimwidth(strip_tags($data), 0, self::MAX_TITLE_LENGTH);
 	}
 
@@ -72,7 +72,7 @@ class Search {
  * @param array $data data
  * @return string Contents
  */
-	public function prepareContents($data) {
+	public static function prepareContents($data) {
 		return implode(self::$delimiter, $data);
 	}
 
@@ -83,7 +83,7 @@ class Search {
  * @param int $searchType search type
  * @return string keyword
  */
-	public function prepareKeyword($keyword, $searchType = self::SEARCH_TYPE_AND) {
+	public static function prepareKeyword($keyword, $searchType = self::SEARCH_TYPE_AND) {
 		switch ($searchType) {
 			case self::SEARCH_TYPE_AND:
 				$keyword = sprintf('*D+ %s', $keyword);
