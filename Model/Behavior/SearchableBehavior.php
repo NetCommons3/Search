@@ -83,7 +83,7 @@ class SearchableBehavior extends ModelBehavior {
 /**
  * Setter method to handle contents
  *
- * @param string $type Message type.
+ * @param array $contents contents
  * @return void
  */
 	public function setSearchableContents($contents = []) {
@@ -102,10 +102,10 @@ class SearchableBehavior extends ModelBehavior {
 /**
  * Setter method to handle title
  *
- * @param string $type Message type.
+ * @param string $title title
  * @return void
  */
-	public function setSearchableTitle($title = []) {
+	public function setSearchableTitle($title) {
 		$this->__contents['title'] = $title;
 	}
 
@@ -122,14 +122,20 @@ class SearchableBehavior extends ModelBehavior {
 		$fields = $this->settings[$model->alias]['fields'];
 		$columns = ['title', 'contents'];
 		foreach ($columns as $column) {
-			if (!isset($fields[$column])) continue;
+			if (!isset($fields[$column])) {
+				continue;
+			}
 			if (is_array($fields[$column])) {
 				foreach ($fields[$column] as $field) {
-					if (!isset($model->data[$model->alias][$field])) continue;
+					if (!isset($model->data[$model->alias][$field])) {
+						continue;
+					}
 					$indexes[$column][] = $model->data[$model->alias][$field];
 				}
 			} else {
-				if (!isset($model->data[$model->alias][$fields[$column]])) continue;
+				if (!isset($model->data[$model->alias][$fields[$column]])) {
+					continue;
+				}
 				$indexes[$column] = $model->data[$model->alias][$fields[$column]];
 			}
 		}
@@ -140,11 +146,10 @@ class SearchableBehavior extends ModelBehavior {
 			$this->setSearchableContents($indexes['contents']);
 			/* var_dump($this->getSearchableContents()); */
 		}
-			
-			/* var_dump($indexes); */
-			/* /\* var_dump($model); *\/ */
-			/* var_dump($model->data); */
-			/* /\* exit; *\/ */
+		/* var_dump($indexes); */
+		/* /\* var_dump($model); *\/ */
+		/* var_dump($model->data); */
+		/* /\* exit; *\/ */
 		if (!$this->getSearchableContents()) {
 			return true;
 		}
@@ -156,8 +161,8 @@ class SearchableBehavior extends ModelBehavior {
 		/* if (! isset($model->data[$model->name]['key']) || $model->data[$model->name]['key'] === '') { */
 		/* 	$model->data[$model->name]['key'] = Security::hash($model->name . mt_rand() . microtime(), 'md5'); */
 		/* } */
-			/* var_dump($this->getSearchableContents()); */
-			/* 	var_dump($this->getSearchableContents()); */
+		/* var_dump($this->getSearchableContents()); */
+		/* 	var_dump($this->getSearchableContents()); */
 		$this->__searchModel->set([
 			'title' => $this->getSearchableTitle(),
 			'contents' => implode(' ', $this->getSearchableContents()),

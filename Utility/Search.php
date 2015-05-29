@@ -26,14 +26,14 @@ class Search {
  *
  * @var string
  */
-	public static $DELIMITER = ' ';
+	public static $delimiter = ' ';
 
 /**
  * Max title length
  *
  * @var int
  */
-	public static $MAX_TITLE_LENGTH = 64;
+	const MAX_TITLE_LENGTH = 64;
 
 /**
  * AND search type
@@ -63,7 +63,7 @@ class Search {
  * @return string Title
  */
 	public function prepareTitle($data) {
-		return mb_strimwidth(strip_tags($data), 0, self::$MAX_TITLE_LENGTH);
+		return mb_strimwidth(strip_tags($data), 0, self::MAX_TITLE_LENGTH);
 	}
 
 /**
@@ -73,7 +73,7 @@ class Search {
  * @return string Contents
  */
 	public function prepareContents($data) {
-		return implode(self::$DELIMITER, $data);
+		return implode(self::$delimiter, $data);
 	}
 
 /**
