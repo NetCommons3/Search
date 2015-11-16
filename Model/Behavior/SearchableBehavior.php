@@ -139,13 +139,17 @@ class SearchableBehavior extends ModelBehavior {
 				$indexes[$column] = $model->data[$model->alias][$fields[$column]];
 			}
 		}
-		if (isset($indexes['title'])) {
-			$this->setSearchableTitle($indexes['title']);
-		}
-		if (isset($indexes['contents'])) {
-			$this->setSearchableContents($indexes['contents']);
-			/* var_dump($this->getSearchableContents()); */
-		}
+		//if (isset($indexes['title'])) {
+		//	$this->setSearchableTitle($indexes['title']);
+		//}
+		$this->setSearchableTitle(Hash::get($indexes, 'title'));
+
+		//if (isset($indexes['contents'])) {
+		//	$this->setSearchableContents($indexes['contents']);
+		//	/* var_dump($this->getSearchableContents()); */
+		//}
+		$this->setSearchableContents(Hash::get($indexes, 'contents'));
+
 		/* var_dump($indexes); */
 		/* /\* var_dump($model); *\/ */
 		/* var_dump($model->data); */
